@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Paint</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class=" toolbar">
+
+        <div class="commands tools">
+        <div class="icon" data-command="undo" title="undo">
+            <img src="/icons/undo.png" width="5%" height="5%">
+        </div>
+        <div class="icon" data-command="download" title="download">
+            <img src="/icons/download.png" width="5%" height="5%">
+        </div>
+    </div>
+        <div class="shapes tools">
+            <div class="icon" data-tool="rectangle" title="rectangle">
+                <img src="/icons/rectangle.png" width="5%" height="5%">
+            </div>
+            <div class="icon" data-tool="ellipse" title="ellipse">
+                <img src="/icons/oval.png" width="5%" height="5%">
+            </div>
+        </div>
+
+        <div class="color tools">
+            
+        <div>
+            <input type="color"  id="color">
+        </div>
+        <div class="brush tools">
+            <div class="icon" data-tool="brush" title="brush">
+                <img src="/icons/brushes.png" width="5%" height="5%">
+            </div>
+            <div class="icon" data-tool="pen" id="pen" title="pen">
+                <img src="/icons/pen.png" width="5%" height="5%">
+            </div>
+        </div>
+        <div class="eraser tools">
+            <div class="icon" data-tool="eraser" title="eraser">
+                <img src="/icons/eraser.png" width="5%" height="5%">
+            </div>
+        </div>
+        <div class="linewidths tools">
+            <div class="icon" data-line-width="5" title="5">
+                <div class="linewidth" style="width: 5px; height: 5px; background-color:white; border-radius: 50%;margin: 3vw 2.5vh;"></div>
+            </div>
+            <div class="icon" data-line-width="7" title="7">
+                <div class="linewidth" style="width: 7px; height: 7px; background-color:white; border-radius: 50%;margin: 3vw 2.5vh;"></div>
+            </div>
+            <div class="icon" data-line-width="9" title="9">
+                <div class="linewidth" style="width: 9px; height: 9px ;
+                background-color:white; border-radius: 50%;margin: 3vw 2.5vh;"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <canvas id="canvas"> </canvas>
+
+
+
+
+</body>
+<script src="/index.js" type="module"> 
+</script>
+
+
+</html>

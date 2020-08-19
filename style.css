@@ -1,0 +1,32 @@
+body{
+    margin: 0px;
+    background-color: greenyellow;
+}
+.toolbar{
+    background-color: darkblue;
+    height: 100vh;
+ 
+
+}
+
+#canvas{
+    position:absolute;
+    background-color:white ;
+    width: 85vw;
+    height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%)
+}
+.toolbar.linewidhts{
+    position: relative;
+
+}
+.toolbar.linewidhts.tools.icon.linewidth{
+    position: absolute;
+    background-color:white;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
