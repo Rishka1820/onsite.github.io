@@ -4,6 +4,10 @@ canvas.width=window.innerWidth
 canvas.height=window.innerHeight
  
 let drawing=false
+document.querySelector('#clear').addEventListener('click',e=>{
+    console.log('clear')
+  ctx.clearRect(0,0,canvas.width,canvas.height)
+})
 
 document.querySelectorAll('[data-command]').forEach(icon => {
 icon.addEventListener('click' ,e=>{
@@ -65,18 +69,18 @@ console.log(selected)
    if(selected.getAttribute('data-tool')=='brush'){
     ctx.lineWidth=lineWidth
     ctx.strokeStyle= color
-    ctx.lineTo(e.clientX-10,e.clientY-20)
+    ctx.lineTo(e.clientX-5,e.clientY-5)
     ctx.stroke()
     ctx.beginPath()
-    ctx.moveTo(e.clientX-10,e.clientY-20)
+    ctx.moveTo(e.clientX-5,e.clientY-5)
    }
    if(selected.getAttribute('data-tool')=='pen'){
     ctx.lineWidth=lineWidth*0.5
     ctx.strokeStyle= color
-    ctx.lineTo(e.clientX-10,e.clientY-5)
+    ctx.lineTo(e.clientX-5,e.clientY-5)
     ctx.stroke()
     ctx.beginPath()
-    ctx.moveTo(e.clientX,e.clientY)
+    ctx.moveTo(e.clientX-5,e.clientY-5)
    }
    if(selected.getAttribute('data-tool')=='eraser'){
        ctx.clearRect(e.clientX-rect.left,e.clientY-rect.top,lineWidth*2,lineWidth*2)
@@ -96,5 +100,4 @@ console.log(selected)
 canvas.addEventListener("mousedown",start)
 canvas.addEventListener('mouseup',end)
 canvas.addEventListener('mousemove',draw)
-
 
