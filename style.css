@@ -1,26 +1,51 @@
 body{
     margin: 0px;
-    background-color: greenyellow;
+    background-color: black;
 }
 .toolbar{
-    background-color: darkblue;
-    height: 100vh;
- 
+margin-top: 0px;
+margin-bottom: 30px;
+    height: 200vh;
+   width: 7vw;
+   background-color:rgb(63, 63, 63);
+    
+
+}
+#clear{
+    background-color: darkgrey;
+    border-radius: 4px;
+    float: right;
+    margin-top: 25px;
+    height: 30px;
+    width: 90px;
+    font-size: 20px;
+    cursor: pointer;
 
 }
 
 #canvas{
     position:absolute;
     background-color:white ;
-    width: 85vw;
-    height: 90vh;
     top: 50%;
     left: 50%;
-    transform:translate(-50%,-50%)
+    transform:translate(-50%,-50%);
+    border: 3px solid green;
 }
 .toolbar.linewidhts{
     position: relative;
+}
+.icon{
+    border: 3px solid black;
+    margin:5px;
+    padding: 2px;
+ 
+}
 
+.icon:hover{
+   size: 110;
+cursor: pointer;
+background-color:wheat;
+  
 }
 .toolbar.linewidhts.tools.icon.linewidth{
     position: absolute;
@@ -29,4 +54,8 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+}
+.img{
+    width: 3vw;
+    height: 5vh;
 }
