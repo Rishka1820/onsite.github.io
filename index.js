@@ -1,7 +1,7 @@
 const canvas =document.getElementById('canvas')
 const ctx= canvas.getContext('2d')
-canvas.width=window.innerWidth
-canvas.height=window.innerHeight
+canvas.width=window.innerWidth*3/4
+canvas.height=window.innerHeight*2/3
  
 let drawing=false
 document.querySelector('#clear').addEventListener('click',e=>{
@@ -50,49 +50,55 @@ icon.addEventListener('click' ,e=>{
 })})  
 
 
-function start(e,){
+function start(e){
+    var iniy=e.clientX;
+    var inix=e.clientX
      drawing= true
-     draw(e)
+     draw(e ,iniy,inix)
  }
  function end(){
      drawing= false
      ctx.beginPath()
     
  }
-function draw(e){
+function draw(e,inix,iniy){
+    
+    var rect = canvas.getBoundingClientRect();
 let selected=document.querySelector("[data-tool].active")
 console.log(selected)
     let color= document.getElementById('color').value
     let lineWidth=document.querySelector("[data-line-width].active").title
-    let rect= canvas.getBoundingClientRect();
+    
     if(!drawing){return}
    if(selected.getAttribute('data-tool')=='brush'){
     ctx.lineWidth=lineWidth
     ctx.strokeStyle= color
-    ctx.lineTo(e.clientX-5,e.clientY-5)
+    ctx.lineTo(e.clientX-rect.left,e.clientY-rect.top)
     ctx.stroke()
     ctx.beginPath()
-    ctx.moveTo(e.clientX-5,e.clientY-5)
+    ctx.moveTo(e.clientX-rect.left,e.clientY-rect.top)
    }
    if(selected.getAttribute('data-tool')=='pen'){
     ctx.lineWidth=lineWidth*0.5
     ctx.strokeStyle= color
-    ctx.lineTo(e.clientX-5,e.clientY-5)
+    ctx.lineTo(e.clientX-rect.left,e.clientY-rect.top)
     ctx.stroke()
     ctx.beginPath()
-    ctx.moveTo(e.clientX-5,e.clientY-5)
+    ctx.moveTo(e.clientX-rect.left,e.clientY-rect.top)
    }
    if(selected.getAttribute('data-tool')=='eraser'){
        ctx.clearRect(e.clientX-rect.left,e.clientY-rect.top,lineWidth*2,lineWidth*2)
        
    } 
    if(selected.getAttribute('data-tool')=='rectangle'){
+    ctx.beginPath()
     ctx.lineWidth=lineWidth*0.5
     ctx.strokeStyle= color
-    ctx.beginPath()
-    ctx.rect(e.clientX,e.clientY)
+    ctx.rect(inix,iniy,e.clientX-rect.left-inix,e.clientY-rect.top-iniy)
     ctx.stroke()
     ctx.beginPath()
+
+    
     
      
    }
@@ -100,4 +106,6 @@ console.log(selected)
 canvas.addEventListener("mousedown",start)
 canvas.addEventListener('mouseup',end)
 canvas.addEventListener('mousemove',draw)
+
+
 
